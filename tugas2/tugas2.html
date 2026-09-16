@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HTML Tugas 2 - Biodata Mahasiswa</title>
+    <style>
+        body {
+            background-color: #fce4ec;
+            font-family: 'Playfair Display', serif;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Container Card Utama */
+        .card {
+            max-width: 500px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            text-align: center;
+        }
+
+        /* Styling Foto Profile */
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #f48fb1;
+            margin-bottom: 15px;
+        }
+
+        /* Styling Judul & Teks */
+        h1 {
+            color: #c2185b;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-top: 0;
+        }
+
+        /* Tabel Biodata */
+        .table-biodata {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .table-biodata td {
+            padding: 8px 5px;
+            vertical-align: top;
+        }
+
+        .label {
+            font-weight: bold;
+            color: #ad1457;
+            width: 30%;
+        }
+
+        /* Deskripsi Singkat */
+        .deskripsi {
+            background-color: #f8bbd0;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-style: italic;
+            color: #c2185b;
+            line-height: 1.5;
+        }
+
+        /* Marquee Teks Running */
+        marquee {
+            color: #880e4f;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Marquee Teks Berjalan seperti pada Tugas 1 -->
+    <marquee behavior="smooth" direction="left">
+        ✨ Selamat Datang di Halaman Biodata Mahasiswa ✨
+    </marquee>
+
+    <!-- Card Biodata Utama -->
+    <div class="card">
+        <!-- Foto Profil (Ganti src="foto.jpg" dengan nama file fotomu) -->
+        <img src="foto.jpeg" alt="Foto Mahasiswa" class="profile-img">
+
+        <h1>Biodata Mahasiswa</h1>
+
+        <hr style="border: 1px solid #f8bbd0; margin: 15px 0;">
+
+        <!-- Tabel Informasi Kontak & Biodata -->
+        <table class="table-biodata">
+            <tr>
+                <td class="label">Nama</td>
+                <td>: Inez Eriana</td>
+            </tr>
+            <tr>
+                <td class="label">NIM</td>
+                <td>: 2513020008</td>
+            </tr>
+            <tr>
+                <td class="label">TTL</td>
+                <td>: Nganjuk, 02 Maret 2006</td>
+            </tr>
+            <tr>
+                <td class="label">Alamat</td>
+                <td>: Jalan Raya Warujayeng Kediri Prambon Nganjuk</td>
+            </tr>
+        </table>
+
+        <!-- Deskripsi Singkat Pribadi -->
+        <div class="deskripsi">
+            <p align="center"><b><u>Deskripsi Singkat:</u></b></p>
+            <p align="justify">
+                Saya adalah Mahasiswa Program Studi Sistem Informasi Semester 3 yang sedang berfokus mempelajari
+                pengembangan web, pengelolaan basis data, serta analisis proses bisnis.
+                Saya memiliki minat besar dalam menggabungkan teknologi dan solusi bisnis untuk merancang sistem yang
+                efektif dan efisien.
+            </p>
+        </div>
+    </div>
+
+</body>
+
+</html>
