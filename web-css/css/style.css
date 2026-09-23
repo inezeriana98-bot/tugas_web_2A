@@ -14,7 +14,7 @@ body {
 }
 
 /* mengatur jarak dalam header */
-.header {
+h1 {
     padding-top: 20px;
     padding-right: 20px;
     padding-left: 20px;
@@ -51,4 +51,55 @@ body {
 .nav li a:hover {
     background-color: orange;
     color: white;
+}
+
+/* untuk css banner  */
+.banner {
+    height: 450px;
+    margin-top: 20px;
+    /*background-color: skyblue;*/
+    /* berikan file gambar  */
+    background-image: url('../img/banner.jpg');
+    /* atur ukuran gambar  */
+    background-size: cover;
+    /* mengatur posisi gambar horizontal dan vertikal  */
+    background-position: center;
+    /* mengatur gambar tepi tebal jenis warna  */
+    border-top: 5px solid navy;
+    border-bottom: 5px solid skyblue;
+}
+
+/* untuk isi  */
+.isi {
+    padding: 20px;
+}
+
+.isi h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.isi .penulis {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.isi .penulis a {
+    text-decoration: none;
+    color: skyblue;
+}
+
+.isi p {
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+/* untuk footer  */
+.footer {
+    background-color: skyblue;
+    padding: 20px;
+    text-align: center;
+    border-top: 5px solid skyblue;
 }
