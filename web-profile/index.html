@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio — Inez Eriana</title>
+
+    <!-- Google Fonts: Playfair Display, Cinzel & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- AOS (Animate On Scroll) CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-main: #F4F6F3;
+            /* Warm Light Sage White */
+            --bg-card: #FFFFFF;
+            --text-dark: #202E2B;
+            /* Deep Forest Black-Green */
+            --text-muted: #5E6E69;
+            /* Soft Sage Muted */
+            --accent-sage: #8A9A86;
+            /* Core Soft Sage */
+            --accent-sage-dark: #4A5B4C;
+            /* Deep Sage Olive */
+            --accent-sage-light: #E2E8E1;
+            /* Light Sage Tint */
+            --border-soft: rgba(74, 91, 76, 0.12);
+            --shadow-subtle: 0 16px 40px rgba(42, 58, 48, 0.05);
+            --shadow-hover: 0 24px 50px rgba(42, 58, 48, 0.12);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-main);
+            overflow-x: hidden;
+            line-height: 1.8;
+            letter-spacing: -0.01em;
+        }
+
+        .font-serif {
+            font-family: 'Cinzel', serif;
+        }
+
+        /* Glass Floating Navbar */
+        .navbar-custom {
+            background: rgba(244, 246, 243, 0.85) !important;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-soft);
+            padding: 1.2rem 0;
+            transition: all 0.4s ease;
+        }
+
+        .navbar-brand {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            color: var(--text-dark) !important;
+        }
+
+        /* Navbar Subtext */
+        .brand-subtext {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            font-size: 0.72rem;
+            letter-spacing: 1.5px;
+            opacity: 0.65;
+            text-transform: uppercase;
+        }
+
+        .nav-link {
+            color: var(--text-muted) !important;
+            font-weight: 500;
+            font-size: 0.88rem;
+            margin: 0 0.8rem;
+            position: relative;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1.5px;
+            bottom: -4px;
+            left: 50%;
+            background-color: var(--accent-sage-dark);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--text-dark) !important;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding-top: 180px;
+            padding-bottom: 110px;
+            position: relative;
+        }
+
+        .hero-avatar-wrapper {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+
+        .hero-avatar-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: -15px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--accent-sage) 0%, transparent 70%);
+            opacity: 0.4;
+            filter: blur(12px);
+        }
+
+        .hero-avatar {
+            width: 170px;
+            height: 170px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid var(--accent-sage);
+            padding: 7px;
+            background: #ffffff;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 10px 30px rgba(138, 154, 134, 0.2);
+        }
+
+        .tag-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--accent-sage-light);
+            color: var(--accent-sage-dark);
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 0.45em 1.3em;
+            border-radius: 100px;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            border: 1px solid rgba(138, 154, 134, 0.25);
+        }
+
+        /* Typography for Name */
+        .hero-title {
+            margin-bottom: 1.2rem;
+            line-height: 1.15;
+        }
+
+        .name-bold-aesthetic {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #1C2724 0%, #4A5B4C 50%, #8A9A86 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            display: inline-block;
+            filter: drop-shadow(0 4px 12px rgba(42, 58, 48, 0.08));
+        }
+
+        /* Hero Name Disesuaikan Ukurannya */
+        .hero-name-large {
+            font-size: clamp(2rem, 5vw, 3.5rem) !important;
+            letter-spacing: 4px !important;
+        }
+
+        /* Minimal Buttons */
+        .btn-editorial {
+            background-color: var(--accent-sage-dark);
+            color: #ffffff;
+            border: 1px solid var(--accent-sage-dark);
+            border-radius: 100px;
+            padding: 0.85rem 2.2rem;
+            font-size: 0.88rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 8px 20px rgba(74, 91, 76, 0.25);
+        }
+
+        .btn-editorial:hover {
+            background-color: transparent;
+            color: var(--accent-sage-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(74, 91, 76, 0.15);
+        }
+
+        /* Section Headings */
+        .section-label {
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent-sage-dark);
+            margin-bottom: 0.5rem;
+            display: block;
+            font-weight: 700;
+        }
+
+        .section-heading {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+        }
+
+        /* Card Component */
+        .editorial-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-soft);
+            border-radius: 20px;
+            box-shadow: var(--shadow-subtle);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow: hidden;
+        }
+
+        .editorial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(138, 154, 134, 0.4);
+        }
+
+        /* Portfolio Card Styling */
+        .portfolio-card {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            overflow: hidden;
+            width: 320px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(138, 154, 134, 0.4);
+        }
+
+        .portfolio-card .img-container img {
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-card:hover .img-container img {
+            transform: scale(1.05);
+        }
+
+        /* Forms */
+        .form-editorial {
+            background: #F9FAF8;
+            border: 1px solid var(--border-soft);
+            border-radius: 12px;
+            padding: 0.9rem 1.2rem;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+        }
+
+        .form-editorial:focus {
+            background: #ffffff;
+            border-color: var(--accent-sage);
+            box-shadow: 0 0 0 3px rgba(138, 154, 134, 0.2);
+            outline: none;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-soft);
+            background: #ffffff;
+            padding: 3rem 0;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .footer-brand {
+            font-family: 'Cinzel', serif;
+            font-weight: 800;
+            letter-spacing: 2.5px;
+            color: var(--accent-sage-dark);
+        }
+
+        /* Floating Scroll Button */
+        .btn-scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--accent-sage-dark);
+            color: #ffffff;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 99;
+            box-shadow: 0 10px 20px rgba(74, 91, 76, 0.25);
+        }
+
+        .btn-scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .btn-scroll-top:hover {
+            background: var(--accent-sage);
+            color: #ffffff;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Floating Scroll-to-Top -->
+    <button class="btn-scroll-top" id="scrollTopBtn" onclick="scrollToTop()">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top" data-aos="fade-down" data-aos-duration="1000">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#home">
+                <span>INEZ ERIANA</span>
+                <span class="brand-subtext">— LEARNING JOURNEY</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="bi bi-list fs-3 text-dark"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav ms-auto align-items-center">
+                    <a class="nav-link active" href="#home">Home</a>
+                    <a class="nav-link" href="#about">About</a>
+                    <a class="nav-link" href="#portfolio">Portfolio</a>
+                    <a class="nav-link" href="#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section text-center">
+        <div class="container">
+            <div class="hero-avatar-wrapper" data-aos="fade-down" data-aos-duration="1200" data-aos-delay="100">
+                <img src="img/foto1.jpeg" class="hero-avatar" alt="Inez Eriana">
+            </div>
+            <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <span class="tag-pill mb-3"><i class="bi bi-record-fill text-success" style="font-size: 8px;"></i> Web
+                    Developer & Student</span>
+            </div>
+            <h1 class="hero-title" data-aos="zoom-in" data-aos-duration="1000">
+                <span class="name-bold-aesthetic hero-name-large">Inez Eriana</span>
+            </h1>
+            <p class="text-muted mx-auto mb-4" style="max-width: 580px; font-size: 1.05rem; font-weight: 300;"
+                data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                Selamat datang di ruang digital saya. Saya mengembangkan aplikasi web yang responsif dan
+                mengintegrasikan logika Python untuk membangun sistem yang fungsional, efisien, dan tepat guna.
+            </p>
+            <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
+                <a href="#portfolio" class="btn btn-editorial">Explore Works <i
+                        class="bi bi-arrow-down-short ms-1"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="container py-5 my-4">
+        <div class="text-center" data-aos="fade-up" data-aos-duration="1000">
+            <span class="section-label">Perspective & Values</span>
+            <h2 class="font-serif section-heading">About Me</h2>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <div class="editorial-card p-4 p-md-5 text-center">
+                    <p class="text-muted leading-relaxed mb-3">
+                        Sebagai mahasiswi Sistem Informasi semester 3, saya memiliki ketertarikan mendalam pada <em>web
+                            development</em> dan pemrograman Python. Nilai utama yang saya pegang adalah
+                        <strong>keinginan untuk terus belajar dan beradaptasi</strong>, tidak hanya dalam membangun
+                        antarmuka web tetapi juga mengintegrasikan logika tingkat lanjut seperti <em>computer
+                            vision</em> dan pengolahan data visual secara <em>real-time</em>.
+                    </p>
+
+                    <p class="text-muted leading-relaxed mb-0">
+                        Melalui pendekatan yang terstruktur, presisi, dan perhatian terhadap detail, saya berkomitmen
+                        menciptakan solusi digital yang intuitif, tepat guna, serta berorientasi pada nilai estetika
+                        yang memberikan dampak nyata bagi penggunanya.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" style="padding: 50px 20px; font-family: sans-serif; background-color: #f9f9f9;">
+        <div style="text-align: center; max-width: 1200px; margin: 0 auto 40px auto;" data-aos="fade-up"
+            data-aos-duration="1000">
+            <span
+                style="font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: #666; font-weight: bold;">Project
+                Archive</span>
+            <h2 style="font-size: 32px; font-weight: bold; margin-top: 10px; color: #111;">Selected Portfolio</h2>
+        </div>
+
+        <div
+            style="display: flex; flex-wrap: wrap; gap: 20px; max-width: 1200px; margin: 0 auto; justify-content: center;">
+
+            <!-- Project 1 -->
+            <div class="portfolio-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                <div class="img-container" style="width: 100%; height: 200px; background: #eee; overflow: hidden;">
+                    <img src="img/porto1.png" alt="Face Detection & Stream Frame Scaling"
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div style="padding: 20px; display: flex; flex-direction: column; flex-grow: 1;">
+                    <span
+                        style="font-size: 11px; text-transform: uppercase; font-weight: bold; color: #888; letter-spacing: 1px; margin-bottom: 5px;">Milestone
+                        01 • COMPUTER VISION</span>
+                    <h3 style="font-size: 18px; font-weight: bold; margin: 0 0 10px 0; color: #222;">Face Detection &
+                        Stream Frame Scaling</h3>
+                    <p style="font-size: 13px; color: #666; line-height: 1.5; margin: 0 0 15px 0; flex-grow: 1;">
+                        Pengembangan modul computer vision untuk membaca dataset citra visual dan mengolah frame kamera
+                        secara real-time. Mengoptimalkan performa pemrosesan melalui downscaling ukuran gambar serta
+                        konversi ruang warna BGR ke RGB.
+                    </p>
+                    <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                        <span
+                            style="font-size: 11px; padding: 4px 8px; background: #f0f0f0; border-radius: 4px; font-weight: 500;">Python</span>
+                        <span
+                            style="font-size: 11px; padding: 4px 8px; background: #f0f0f0; border-radius: 4px; font-weight: 500;">OpenCV</span>
+                        <span
+                            style="font-size: 11px; padding: 4px 8px; background: #f0f0f0; border-radius: 4px; font-weight: 500;">NumPy</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="portfolio-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="250">
+                <div class="img-container" style="width: 100%; height: 200px; background: #eee; overflow: hidden;">
+                    <img src="img/porto2.png" alt="Facial Embedding & Vector Distance Matching"
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div style="padding: 20px; display: flex; flex-direction: column; flex-grow: 1;">
+                    <span
+                        style="font-size: 11px; text-transform: uppercase; font-weight: bold; color: #888; letter-spacing: 1px; margin-bottom: 5px;">Milestone
+                        02 • MACHINE LEARNING</span>
+                    <h3 style="font-size: 18px; font-weight: bold; margin: 0 0 10px 0; color: #222;">Facial Embedding &
+                        Vector Distance Matching</h3>
+                    <p style="font-size: 13px; color: #666; line-height: 1.5; margin: 0 0 15px 0; flex-grow: 1;">
+                        Sistem pengolahan facial landmarks 128-dimensi untuk ekstraksi data keunikan wajah.
+                        Mengimplementasikan algoritma pengukuran jarak vektor (Euclidean distance) dengan penentuan
+                        batas ambang toleransi kemiripan presisi untuk identifikasi subjek.
+                    </p>
+                    <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                        <span
+                            style="font-size: 11px; padding: 4px 8px; background: #f0f0f0; border-radius: 4px; font-weight: 500;">Python</span>
+                        <span
+                            style="font-size: 11px; padding: 4px 8px; background: #f0f0f0; border-radius: 4px; font-weight: 500;">dlib</span>
+                        <span
+                            style="font-size: 11px; padding: 4px 8px; background: #f0f0f0; border-radius: 4px; font-weight: 500;">face_recognition</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="portfolio-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                <div class="img-container" style="width: 100%; height: 200px; background: #eee; overflow: hidden;">
+                    <img src="img/porto3.png" alt="Automated Real-Time Recognition & Data Logging System"
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div style="padding: 20px; display: flex; flex-direction: column; flex-grow: 1;">
+                    <span
+                        style="font-size: 11px; text-transform: uppercase; font-weight: bold; color: #888; letter-spacing: 1px; margin-bottom: 5px;">Milestone
+                        03 • SYSTEM INTEGRATION</span>
+                    <h3 style="font-size: 18px; font-weight: bold; margin: 0 0 10px 0; color: #222;">Automated Real-Time
+                        Recognition & Data Logging System</h3>
+                    <p style="font-size: 13px; color: #666; line-height: 1.5; margin: 0 0 15px 0; flex-grow: 1;">
+                        Integrasi akhir yang menggabungkan pengenalan pola visual secara real-time dengan logika
+                        manajemen data. Memiliki fitur filter pengecekan duplikasi log harian, validasi waktu masuk
+                        otomatis, dan ekspor rekap ke format Spreadsheet (.xlsx).
+                    </p>
+                    <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                        <span
+                            style="font-size: 11px; padding: 4px 8px; background: #f0f0f0; border-radius: 4px; font-weight: 500;">Python</span>
+                        <span
+                            style="font-size: 11px; padding: 4px 8px; background: #f0f0f0; border-radius: 4px; font-weight: 500;">Pandas</span>
+                        <span
+                            style="font-size: 11px; padding: 4px 8px; background: #f0f0f0; border-radius: 4px; font-weight: 500;">OpenPyXL</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container py-5 my-4">
+        <div class="text-center" data-aos="fade-up" data-aos-duration="1000">
+            <span class="section-label">Get In Touch</span>
+            <h2 class="font-serif section-heading">Send a Message</h2>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-7 col-lg-6" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
+                <div class="editorial-card p-4 p-md-5">
+                    <form>
+                        <!-- Full Name -->
+                        <div class="mb-3">
+                            <label for="nama" class="form-label small text-muted text-uppercase fw-semibold"
+                                style="letter-spacing: 1px;">Full Name</label>
+                            <input type="text" class="form-control form-editorial" id="nama"
+                                placeholder="Enter your full name">
+                        </div>
+
+                        <!-- Email Address -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label small text-muted text-uppercase fw-semibold"
+                                style="letter-spacing: 1px;">Email Address</label>
+                            <input type="email" class="form-control form-editorial" id="email"
+                                placeholder="name@domain.com">
+                        </div>
+
+                        <!-- Gender -->
+                        <div class="mb-3">
+                            <label for="gender" class="form-label small text-muted text-uppercase fw-semibold"
+                                style="letter-spacing: 1px;">Gender</label>
+                            <select class="form-select form-editorial" id="gender">
+                                <option value="" selected disabled>Select your gender</option>
+                                <option value="female">Female</option>
+                                <option value="male">Male</option>
+                                <option value="other">Prefer not to say</option>
+                            </select>
+                        </div>
+
+                        <!-- Message -->
+                        <div class="mb-4">
+                            <label for="pesan" class="form-label small text-muted text-uppercase fw-semibold"
+                                style="letter-spacing: 1px;">Message / Inquiry</label>
+                            <textarea class="form-control form-editorial" id="pesan" rows="4"
+                                placeholder="Share your ideas, questions, or collaboration opportunities..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-editorial w-100 py-3">Send Message <i
+                                class="bi bi-send ms-2"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container" data-aos="fade-up" data-aos-duration="800">
+            <p class="footer-brand mb-1 fs-6">INEZ ERIANA</p>
+            <p class="mb-0 text-muted" style="font-size: 0.8rem;">&copy; 2026 Inez Eriana. Crafted with minimalism and
+                intent.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <!-- AOS (Animate On Scroll) JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        AOS.init({
+            once: true,
+            duration: 1000,
+            easing: 'ease-out-cubic',
+            offset: 120
+        });
+
+        const scrollTopBtn = document.getElementById("scrollTopBtn");
+        window.onscroll = function () {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                scrollTopBtn.classList.add("show");
+            } else {
+                scrollTopBtn.classList.remove("show");
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+    </script>
+
+</body>
+
+</html>
