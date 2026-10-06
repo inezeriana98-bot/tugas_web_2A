@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KASIR-JS</title>
+</head>
+
+<body>
+
+    <h1>Struk Belanja Kasir</h1>
+
+    <script type="text/javascript">
+        // 1, 2, & 3. Menerima input nama barang, harga barang, dan jumlah beli (qty) via prompt
+        let namaBarang = prompt("Masukkan nama barang:");
+        let hargaBarang = parseFloat(prompt("Masukkan harga barang:"));
+        let qty = parseInt(prompt("Masukkan jumlah beli (qty):"));
+
+        // Menghitung total belanja awal
+        let totalBelanja = hargaBarang * qty;
+        let diskon = 0;
+
+        // 4. Jika pembelian lebih dari 50.000, dapat diskon 10% dari total
+        if (totalBelanja > 50000) {
+            diskon = 0.10 * totalBelanja;
+        }
+
+        // Menghitung total pembayaran akhir setelah diskon
+        let pembayaran = totalBelanja - diskon;
+
+        // Memformat angka dengan pemisah ribuan agar sesuai dengan tampilan contoh
+        let formatHarga = hargaBarang.toLocaleString('id-ID');
+        let formatTotal = totalBelanja.toLocaleString('id-ID');
+        let formatDiskon = diskon.toLocaleString('id-ID');
+        let formatBayar = pembayaran.toLocaleString('id-ID');
+
+        // 5. Menampilkan tampilan struk belanja menyerupai contoh di gambar menggunakan <pre> agar format teks lurus
+        let struk = `
++++++++++++++++++++++++++++++++++++++++++
++                                       +
++ nama      Harga     qty   total       +
++ ${namaBarang}                             +
++           ${formatHarga}     ${qty}     ${formatTotal}       +
++                                       +
++ total belanja       ${formatTotal}       +
++ diskon              ${formatDiskon}       +
++ pembayaran          ${formatBayar}       +
++                                       +
++++++++++++++++++++++++++++++++++++++++++
+        `;
+
+        // Menampilkan hasil ke dokumen HTML
+        document.write("<pre>" + struk + "</pre>");
+    </script>
+
+</body>
+
+</html>
