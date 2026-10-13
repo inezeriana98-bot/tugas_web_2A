@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar DOM</title>
+</head>
+
+<body>
+    <h1 id="judul">WEB Development</h1>
+
+    <p>Web development adalah proses pembangunan, pembuatan, dan pemeliharaan sebuah situs web yang dapat diakses
+        melalui internet. Proses ini mencakup berbagai tahapan, mulai dari desain web, penulisan kode pemrograman,
+        manajemen basis data, hingga konfigurasi keamanan server. Tujuan utamanya adalah menciptakan pengalaman
+        berselancar yang cepat, responsif, fungsional, dan ramah pengguna bagi pengunjung situs tersebut.</p>
+
+    <p>Dalam praktiknya, web development umumnya dibagi menjadi dua bagian utama, yaitu frontend (sisi klien) dan
+        backend (sisi server). Frontend berfokus pada tampilan visual dan interaksi yang langsung dilihat serta
+        digunakan oleh pengguna menggunakan teknologi seperti HTML, CSS, dan JavaScript. Sementara itu, backend
+        bertanggung jawab mengelola logika aplikasi, server, dan basis data di balik layar agar seluruh sistem situs web
+        dapat berjalan dengan lancar dan aman.</p>
+
+    <h3 class="daftar">Daftar</h3>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>PHP</li>
+        <li>SQL</li>
+    </ul>
+
+    <script>
+        let judul = document.getElementById('judul');
+        console.log(judul);
+    </script>
+
+    <script>
+        let p = document.getElementsByTagName('p');
+        console.log(p);
+    </script>
+
+    <script>
+        let daftar = document.getElementsByClassName('daftar');
+        console.log(daftar);
+    </script>
+
+    <script>
+        let title = document.querySelector('#judul');
+        console.log(title);
+    </script>
+
+    <script>
+        let list = document.querySelectorAll('li');
+        console.log(list);
+    </script>
+
+</body>
+
+</html>
